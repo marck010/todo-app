@@ -41,12 +41,13 @@ export default function Add(props) {
     const [description, setTaskDescription] = useState("");
 
     const addTask = (title, description) => {
+
         if (title && description) {
             setTask(title, description, type);
-        }
 
-        setTaskTitle("");
-        setTaskDescription("");
+            setTaskTitle("");
+            setTaskDescription("");
+        }
     }
 
     return (
@@ -55,13 +56,15 @@ export default function Add(props) {
                 className={classes.input}
                 placeholder="Task Title"
                 inputProps={{ 'aria-label': 'Task Title' }}
-                onBlur={(event) => { setTaskTitle(event.target.value) }}
+                onChange={(event) => { setTaskTitle(event.target.value) }}
+                value={title}
             />
             <InputBase
                 className={classes.input}
                 placeholder="Task Description"
                 inputProps={{ 'aria-label': 'Tast Description' }}
-                onBlur={(event) => { setTaskDescription(event.target.value) }}
+                onChange={(event) => { setTaskDescription(event.target.value) }}
+                value={description}
             />
             <Divider className={classes.divider} />
             <Fab size="small" color="primary" aria-label="add" onClick={() => addTask(title, description)} className={classes.fab}>

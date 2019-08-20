@@ -47,7 +47,7 @@ export function TodoList(props) {
                     {
                         todoTasks.map((task, index) => {
                             return <React.Fragment>
-                                <TaskItem task={task} index={index} />
+                                <TaskItem task={task} />
 
                                 <IconButton edge="end" title="Remove" aria-label="delete" onClick={() => removeTask(index, REMOVE_TASK_TODO)}>
                                     <DeleteIcon />
@@ -102,11 +102,11 @@ export function TodoList(props) {
                             return <React.Fragment>
                                 <TaskItem task={task} />
 
-                                <IconButton edge="end" title="Remove" aria-label="delete" onClick={() => { setTask(task.title, task.description, SET_TASK_DOING); removeTask(index, REMOVE_TASK_DONE) }}>
+                                <IconButton edge="end" title="To Doing" aria-label="delete" onClick={() => { setTask(task.title, task.description, SET_TASK_DOING); removeTask(index, REMOVE_TASK_DONE) }}>
                                     <ArrowBackIcon />
                                 </IconButton>
 
-                                <IconButton edge="end" title="To Doing" aria-label="delete" onClick={() => removeTask(index, REMOVE_TASK_DONE)}>
+                                <IconButton edge="end" title="Remove" aria-label="delete" onClick={() => removeTask(index, REMOVE_TASK_DONE)}>
                                     <DeleteIcon />
                                 </IconButton>
 
